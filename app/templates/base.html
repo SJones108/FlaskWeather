@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Weather Information"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="../static/CSS/main.css">
+<title>Weather Hub</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-secondary navbar-light fixed-top pt-2">
+        <div class="container">
+            <a href="{{ url_for('site.home') }}" class="navbar-brand">Weather Hub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="{{ url_for('site.home') }}" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button">Profile</a>
+                            <ul class="dropdown-menu bg-secondary">
+                                {% if current_user.is_authenticated %}
+                                <li>
+                                    <a class="dropdown-item" href="{{ url_for('site.profile') }}">My Profile</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ url_for('auth.logout') }}">Logout</a>
+                                </li>
+                                {% else %}
+                                <li>
+                                    <a class="dropdown-item" href="{{ url_for('auth.signin') }}">Sign In</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ url_for('auth.signup') }}">Sign Up</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% block content %}
+{% endblock %}
+    <footer class="text-center text-black bg-secondary position-sticky">
+        <div class="container p-2">
+            <div class="row">
+                <div class="d-grid text-center text-black bg-secondary small">
+                    &copy; Shirley Jones - 2023. All photographs are property of Unsplash.com
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>

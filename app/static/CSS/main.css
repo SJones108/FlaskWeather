@@ -1,0 +1,26 @@
+a:hover
+{
+    color: rgb(50, 38, 102) !important;
+}
+
+a.dropdown-item:hover 
+{
+    background-color: inherit;
+}
+
+body {
+    background-image: url("/static/Images/background.jpg");
+    background-size: cover;
+  }
+
+h1, h2, h3, h4 
+{
+    color: white;
+}
+
+#signup, #signin 
+{
+    padding-top: 10%;
+    height: 100vh;
+}
+
